@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD330 Week 4 Notes</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="weekFour">
+      <h1 class="bgHeader">
+        <a href="../index.html">WDD 330 - Web Frontend Development</a>
+      </h1>
+      <h2>Week04</h2>
+      <h3>Notes</h3>
+      <h4>Chapter 8 (Forms)</h4>
+      <ul class="notesList">
+        <li>
+          The following sample code adds a submit listener:<br />
+          <div class="codeBlock">
+            const form = document.forms['search']
+            <br /><br />
+            form.addEventListener('submit', search, false)
+            <br /><br />
+            function search() {<br />
+            <span style="margin-left: 10px">// do stuff</span><br />
+            }
+          </div>
+        </li>
+        <li>form.submit() will submit the form automatically.</li>
+        <li>
+          There's a submit event for js that might do some things with it before
+          it gets sent to the backend.
+        </li>
+        <li>You can also retrieve and change values in a form using js.</li>
+      </ul>
+      <h4>Code samples from the reading</h4>
+      <p>Super Powers:</p>
+      <label for="flight"
+        >Flight:
+        <input type="checkbox" id="flight" value="Flight" name="powers" />
+      </label>
+      <label for="strength"
+        >Super Strength:
+        <input type="checkbox" id="strength" value="Strength" name="powers" />
+      </label>
+      <label for="speed"
+        >Super Speed:
+        <input type="checkbox" id="speed" value="Super Speed" name="powers" />
+      </label>
+      <label for="energy"
+        >Energy Blasts:
+        <input
+          type="checkbox"
+          id="energy"
+          value="Energy Blasts"
+          name="powers"
+        />
+      </label>
+      <label for="telekinesis"
+        >Telekinesis:
+        <input
+          type="checkbox"
+          id="telekinesis"
+          value="Telekinesis"
+          name="powers"
+        />
+      </label>
+
+      <h4>Radio type input boxes - to force only one choice</h4>
+      <p>What type of hero are you?</p>
+      <label for="hero"
+        >Hero:
+        <input type="radio" name="category" value="Hero" id="hero" />
+      </label>
+      <label for="villain"
+        >Villain:
+        <input type="radio" name="category" value="Villain" id="villain" />
+      </label>
+      <label for="anti-hero"
+        >Anti-Hero:
+        <input type="radio" name="category" value="Antihero" id="anti-hero" />
+      </label>
+      <ul class="notesList">
+        <li>
+          When you name your inputs, in this case it is called "category", you
+          can easily reference them by in scripts using syntax like:
+          form.category.
+        </li>
+      </ul>
+      <h3>Chapter 12 - Object-Oriented Programming in JavaScript</h3>
+      <ul class="notesList">
+        <li>
+          There are Constructor functions. They look like this:<br />
+          <div class="codeBlock">
+            const Dice = function(sides=6){<br />
+            this.sides = sides;<br />
+            this.roll = function() {<br />
+            return Math.floor(this.sides * Math.random() + 1)<br />
+            } <br />
+            }
+          </div>
+        </li>
+        <li>
+          What's important to note is the "this" keyword. It is used to
+          represent the object that will be returned by the constructor
+          function.
+        </li>
+        <li>
+          An "instance" of the above code looks like this using the "new"
+          operator:<br />
+          <div class="codeBlock">const redDice = new Dice();<br /></div>
+        </li>
+        <li>It assigns the Dice object to a new variable called redDice.</li>
+      </ul>
+      <h4>Class Declarations</h4>
+      <ul class="notesList">
+        <li>
+          Constructor functions are good, but class declarations are better.
+          Here's code that is better than above:<br />
+          <div class="codeBlock">
+            class Dice {<br />
+            constructor(sides=6) {<br />
+            this.sides = sides;<br />
+            } <br />
+            roll() {<br />
+            return Math.floor(this.sides * Math.random() + 1)<br />
+            }
+            <br />
+          </div>
+        </li>
+        <li>
+          Sometimes we want to go in and add more properties or even methods to
+          a class declaration after it's been created. We can do this by using
+          the prototype property.
+        </li>
+        <li>className.prototype.whateverpropertyyouwanthere</li>
+        <li>
+          The cool thing about changing a property with the class declarations,
+          it gets changed across the board. So every instance will get that
+          change updated. This is called, "live". The Prototype is live.
+        </li>
+        <li>
+          We can assign each individual instance to a new property. We just call
+          that specific instance and assign it a new value. We can change all
+          the values at once in a class declaration though. If we want to change
+          just the one instance, you have to assign it directly.
+        </li>
+      </ul>
+      <h4>
+        A golden rule to remember is: Never use arrays or objects as a default
+        value in prototype.
+      </h4>
+      <h4>Inheritance</h4>
+      <ul class="notesList">
+        <li>
+          Extends is a way to inherit all the parent class qualities. The book
+          gave the example of creating a ninja turtles class using the extension
+          of turtles as the parent class.
+        </li>
+        <li>
+          Inside the constructor, if you are going to use the same variable name
+          to assign it to a new inherited class, you use the keyword "super."
+        </li>
+      </ul>
+      <h4>Property Descriptors</h4>
+      <ul class="notesList">
+        <li>
+          value ― This is the value of the property and is undefined by default
+        </li>
+        <li>
+          writable ― This boolean value shows whether a property can be changed
+          or not, and is false by default.
+        </li>
+        <li>
+          enumerable ― this boolean value shows whether a property will show up
+          when the object is displayed in a for in loop, and is false by default
+        </li>
+        <li>
+          configurable ― this boolean value shows whether you can delete a
+          property or change any of its attributes, and is false by default.
+        </li>
+        <li>
+          getOwnPropertyDesciptor() method - get's the values in a object
+          function.
+        </li>
+        <li>
+          Object.defineProperty() method - allows each attribute to be set.
+        </li>
+        <li>
+          So when you are setting attributes inside this method, you can use the
+          "writeable" keyword and set it to false. Then you can't change the
+          value of it. It's a security measure.
+        </li>
+        <li>
+          Here's an example:<br />
+          <div class="codeBlock">
+            Object.defineProperty(me, 'eyeColor', { value: 'blue', writable:
+            false, enumerable: true }); results { name: 'DAZ' , age: 21,
+            eyeColor: 'blue' }
+            <br />
+          </div>
+        </li>
+        <li>
+          So in the example above, we are setting or "definingProperty" of
+          eyeColor to the value of blue, it can't be overwritten because
+          writable is set to false, and it can be numbered or counted because
+          enumerable is set to true.
+        </li>
+        <li>defineProperty() can't change the value of an attribute.</li>
+        <li>
+          When you use the getter and setter, and you set the get to a value
+          that is able to change based on a if statement, then the value will
+          change. But if you just set the get, the value doesn't change.
+        </li>
+        <li>
+          When creating an object with Object.create(), enumerable is
+          automatically set to false. If you want to change it, you have to
+          assign it.
+        </li>
+        <li>The init() function is an initialization function.</li>
+      </ul>
+      <h4>Mixin Function</h4>
+      <ul class="notesList">
+        <li>
+          mixin() is a function where you can make deep copies of objects,
+          arrays. Instead of just referencing another object, making a deep copy
+          can be useful.
+        </li>
+        <li>
+          You can use mixins to add multiple properties at once.<br />
+          <div class="codeBlock">
+            mixin(wonderWoman,{ name: 'Wonder Woman', realName: 'Diana Prince'
+            });
+            <br />
+          </div>
+        </li>
+        <li>
+          Mixin functions can use the copy() function to create a deep copy.
+        </li>
+        <li>If a method returns "this", methods can be chained together.</li>
+        <li>
+          Sometimes, this gets tricky because "this" can refer to a global
+          object.
+        </li>
+        <li>
+          The value of this is not retained inside nested functions, which can
+          cause errors. This can be worked around by using that = this , using
+          the bind(this) method and using arrow functions.
+        </li>
+      </ul>
+      <h3>Chapter 15 - Modular JavaScript</h3>
+      <ul class="notesList">
+        <li>
+          A module is a self-contained piece of code that provides functions and
+          methods that can then be used in other files and by other modules.
+          This helps to keep code organized in separate, reusable files, which
+          improves code maintainability
+        </li>
+        <li>
+          A ES6 module file is just a normal JavaScript file, but uses the
+          keyword export to specify any values or functions that are to be made
+          available from the module.<br />
+          <div class="codeBlock">export const PI = 3.1415926;<br /></div>
+        </li>
+        <li>
+          This would then be imported into your JavaScript file using the
+          following code:<br />
+          <div class="codeBlock">import { PI } from './pi.js';<br /></div>
+        </li>
+        <li>
+          Functions can also be exported from a module. For example, creating a
+          library for stats functions used from the book:<br />
+          <div class="codeBlock">
+            function square(x) {<br />
+            return x * x;<br />
+            }<br />
+            function sum(array, callback) {<br />
+            if(callback) {<br />
+            array = array.map(callback);<br />
+            }<br />
+            return array.reduce((a,b) => a + b );<br />
+            }<br />
+            function variance(array) {<br />
+            return sum(array,square)/array.length - square(mean(array))<br />
+            }<br />
+            function mean(array) {<br />
+            return sum(array) / array.length;<br />
+            }<br />
+            export {<br />
+            variance,<br />
+            mean<br />
+            }<br />
+          </div>
+        </li>
+        <li>
+          This would then be imported into your JavaScript file by adding this
+          line of code to your js file:<br />
+          <div class="codeBlock">
+            import { mean, variance } from './stats.js';<br />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

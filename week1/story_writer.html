@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>Story Editor</title>
+  <script>
+  	function loadStory(){
+  		var storyName = document.getElementById("name_input").value
+  		var storyHTML = localStorage.getItem(storyName)
+  		document.getElementById("story_editor").value = storyHTML
+  	}
+  	function saveStory(){
+  		var storyName = document.getElementById("name_input").value
+  		var storyHTML = document.getElementById("story_editor").value
+  		localStorage.setItem(storyName,storyHTML)
+  	}
+  	function displayStory(){
+  		var storyHTML = document.getElementById("story_editor").value
+  		document.getElementById("story_display").innerHTML = storyHTML
+  	}
+  </script>
+      <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<div class="storySection">
+		<h1>Story Editor</h1>
+		Story Name:<input id=name_input></input>
+		<section>
+			<button class="mainBtn" onclick="loadStory()">Find and Edit It</button>
+			<button class="mainBtn" onclick="saveStory()">Save It</button>
+			<button class="mainBtn" onclick="displayStory()">Display It</button>
+		</section>
+		<textarea rows="15" id="story_editor" placeholder="Write a totally awesome story here."></textarea>
+		<section id="story_display"></section>
+	</div>
+</body>
+</html>

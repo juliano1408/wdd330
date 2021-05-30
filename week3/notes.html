@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD330 Week 3 Notes</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      p {
+        width: 200px;
+        height: 200px;
+        margin: 3em;
+        background-color: #ccc;
+        float: inline-start;
+      }
+
+      .highlight {
+        background-color: red;
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <h1 class="bgHeader">
+      <a href="../index.html">WDD 330 - Web Frontend Development</a>
+    </h1>
+    <h2>Week03</h2>
+    <h3>Notes</h3>
+    <h4>Chapter 5 (Objects)</h4>
+    <ul class="notesList">
+      <li>
+        Objects have alot of power and flexibity when we define them. We can
+        access objects easily and have them do useful things.
+      </li>
+      <li>
+        An object in JavaScript is a self-contained set of related values and
+        functions;
+      </li>
+      <li>
+        You can call a function with an object like this: objectName.function();
+        when you use object.dot notation
+      </li>
+      <li>
+        You can check if a property exists in an object by calling
+        hasOwnProperty()
+      </li>
+      <li>
+        Object.values() and object.entries() give you the values and key-value
+        pairs.
+      </li>
+      <li>
+        Adding a property is easy, just type it in! Ex: object.newpropertyname =
+        "nameOfKey-ValuePair";
+      </li>
+      <li>
+        You can change a property value by setting it equal to another key-value
+        pair
+      </li>
+      <li>
+        You can delete a key-value pair by doing this: delete
+        objectName.propertyName
+      </li>
+      <li>Objects can be nested. You can have an object within an object.</li>
+      <li>Objects can also be a parameter in a function.</li>
+    </ul>
+    <h4>This</h4>
+    <ul class="notesList">
+      <li>
+        This is a keyword whose value changes depending on how a function gets
+        called.
+      </li>
+      <li>There are six different ways where this can take on new values:</li>
+    </ul>
+    <ul>
+      <li>global context</li>
+      <li>object construction</li>
+      <li>object method</li>
+      <li>simple function</li>
+      <li>arrow function</li>
+      <li>event listener</li>
+    </ul>
+    <h4>A Map Loops Through An Array</h4>
+    <h4>JSON - JavaScript Object Notation</h4>
+    <ul class="notesList">
+      <li>
+        JSON.parse(batman) - takes a string of data and makes it a JS object
+      </li>
+      <li>JSON.stringify - takes a JS object and makes it a string</li>
+    </ul>
+    <h4>Math Objects</h4>
+    <ul class="notesList">
+      <li>Lots of math objects. Here's a few</li>
+      <li>Math.abs()</li>
+      <li>Math.ceil()</li>
+      <li>Math.floor()</li>
+      <li>Math.round()</li>
+      <li>Math.trunc()</li>
+      <li>Math.exp()</li>
+      <li>Math.pow()</li>
+      <li>Math.sqrt()</li>
+      <li>Math.cbrt()</li>
+      <li>Math.hypot()</li>
+    </ul>
+    <h4>Getter Methods</h4>
+
+    <ul class="notesList">
+      <li>
+        getDay() getUTCDay() getDate() getMonth() getYear() getFullYear()
+        getTime()
+      </li>
+    </ul>
+    <h4>Setter Methods</h4>
+    <ul class="notesList">
+      <li>You can set all of the above getter methods</li>
+    </ul>
+    <h3>RegExp - Regular Expression</h3>
+    <ul class="notesList">
+      <li>
+        Pattern that can be used to search strings for matches to a pattern
+      </li>
+      <li>
+        The end of Chapter 5 of JavaScript Novice to Ninja has all sorts of
+        information on the use of patterns, testing patterns, and methods to
+        call them
+      </li>
+    </ul>
+    <h4>DOM - Document Object Model</h4>
+    <ul class="notesList">
+      <li>
+        This represents everything on a webpage as a node. Why? So these objects
+        can then be assigned to a variable and be inspected or modified
+      </li>
+      <li>So all of the "document." has to do with utilizing the DOM</li>
+      <li>
+        Document.body returns the body element of a web page, as we saw in the
+        previous example.
+      </li>
+      <li>
+        Document.links returns a node list of all the &lt;a&gt; elements and
+        &lt;area&gt; elements that have an href attribute.
+      </li>
+      <li>
+        Document.anchors returns a node list of all the &lt;a&gt; elements that
+        have a name attribute.
+      </li>
+      <li>
+        Document.forms returns a node list of all the forms in the document.
+        This will be used when we cover forms in Chapter 8.
+      </li>
+      <li>
+        innerHTML - returns all the child elements of a element as a string of
+        HTML.
+      </li>
+      <li>You can change the CSS styles of something by using JavaScript.</li>
+    </ul>
+    <h4>Events - Chapter 7</h4>
+    <ul class="notesList">
+      <li>
+        addEventListener() can be used on a node, it has the code listen until
+        the user does something, and then calls to action some funtion or code
+        as a callback. For example: document.body.addEventListener('click',
+        doSomething); where doSomething is a function.
+      </li>
+      <li>
+        You don't have to assign it to a node, like above. You could assign it
+        to the entire page like this: addEventListener('click', () => alert('You
+        Clicked!'));
+      </li>
+      <li>
+        You could also create a function, and within that function, an event
+        listener occurs.
+      </li>
+    </ul>
+    <h3>Example Code Below</h3>
+    <!-- <style>
+        p {
+            width: 200px;
+            height: 200px;
+            margin: 3em;
+            background-color: #ccc;
+            float: inline-start;
+        }
+
+        .highlight {
+            background-color: red;
+        }
+    </style> -->
+    <p id="click">Click On Me</p>
+    <p id="dblclick">Double Click On Me</p>
+    <p id="mouse">Hover On Me</p>
+    <p>
+      <a id="broken" href="https://sitepoint.com">Broken Link</a>
+    </p>
+    <script src="js/main.js"></script>
+    <ul class="notesList">
+      <li>
+        The example code was very fun to play with. It takes the id, adds an
+        event listener, and then assigns it to the class highlight.
+      </li>
+      <li>
+        There are Keyboard Events that can be useful when paired with search
+        functions => keydown, keypress, and keyup
+      </li>
+      <li>
+        You can specify touch events for mobile devices => 'touchend'(when you
+        end a touch) 'touchcenter'(when the user passes over the element that
+        has an event) 'touchleave'(user is still touching the surface, but left
+        the area with the event) 'touchcancel'(when a touch event is canceled)
+      </li>
+      <li>
+        Swiping doesn't have a specific event, but you can use a combination of
+        touchstart, touchmove, and touchleave
+      </li>
+    </ul>
+  </body>
+</html>

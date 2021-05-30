@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD330 Week 5 Notes</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <h1 class="bgHeader">
+      <a href="../index.html">WDD 330 - Web Frontend Development</a>
+    </h1>
+    <h2>Week 05 - Debugging</h2>
+    <h3>Notes</h3>
+    <h4>Chapter 10 (Debugging)</h4>
+    <ul class="notesList">
+      <li>
+        Errors are of the following types:
+        <ul>
+          <li>System Error</li>
+          <li>Programmer Error</li>
+          <li>User Error</li>
+        </ul>
+      </li>
+      <li>
+        Reference Errors occur when something is called (or "referred to") when
+        it doesn't exist where it's expected
+      </li>
+      <li>Stack Trace shows where an error occurred</li>
+      <li>
+        Warnings happen when there's a problem in the code but it doesn't cause
+        the program to fail
+      </li>
+      <li>Strict mode produces more exceptions and warnings</li>
+      <li>Lint programs find non-error sloppy code</li>
+      <li>alert(something) can be used like a breakpoint</li>
+      <li>Use console to show info</li>
+    </ul>
+    <h4>Create JavaScript errors - Error Objects</h4>
+    <ul class="notesList">
+      <li>
+        Create a new error constructor function like this:
+        <div class="codeBlock">
+          const error = new Error('Oops, something went wrong');
+          <br />
+        </div>
+      </li>
+      <li>
+        RangeError is thrown when a number is outside an allowable range of
+        values.
+      </li>
+      <li>
+        ReferenceError is thrown when a reference is made to an item that
+        doesn’t exist. For example, calling a function that hasn't been defined.
+      </li>
+      <li>SyntaxError is thrown when there’s an error in the code’s syntax.</li>
+      <li>
+        TypeError is thrown when there’s an error in the type of value used; for
+        example, a string is used when a number is expected.
+      </li>
+      <li>
+        URIError is thrown when there’s a problem encoding or decoding the URI.
+      </li>
+      <li>
+        InternalError is a non-standard error that is thrown when an error
+        occurs in the JavaScript engine. A common cause of this too much
+        recursion.
+      </li>
+      <li>
+        You can use these error objects to create new constructors for custom
+        error objects like this:<br />
+        <div class="codeBlock">
+          const error = new TypeError('You need to use numbers in this
+          function');
+          <br />
+        </div>
+      </li>
+    </ul>
+    <h4>Throw and Catch Exceptions</h4>
+    <ul class="notesList">
+      <li>
+        function squareRoot(number) {<br />
+        <div class="codeBlock">
+          'use strict';<br />
+          if (number &lt; 0) {<br />
+          throw new RangeError('You can't find the square root of negative
+          numbers')<br />
+          }<br />
+          return Math.sqrt(number);<br />
+          };
+        </div>
+      </li>
+      <li>
+        Another example with a catch statement. It looks like this: <br />
+        <div class="codeBlock">
+          function imaginarySquareRoot(number) {<br />
+          'use strict';<br />
+          try {<br />
+          return String(squareRoot(number));<br />
+          } catch(error) {<br />
+          return squareRoot(-number)+'i';<br />
+          }<br />
+          }
+        </div>
+      </li>
+      <li>The output will be "7i" when I give it an input of -49</li>
+      <li>Use try, catch, and finally</li>
+      <li>Write tests</li>
+    </ul>
+    <h4>Test Driven Development (TDD)</h4>
+    <ul class="notesList">
+      <li>Write tests (that initially fail)</li>
+      <li>Write code to pass the tests</li>
+      <li>Refactor the code</li>
+      <li>Test refactored code</li>
+      <li>Write more tests for new features</li>
+      <li>Jest</li>
+    </ul>
+  </body>
+</html>

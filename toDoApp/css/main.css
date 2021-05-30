@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+}
+#container {
+  position: relative;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+#taskList {
+  padding: 0;
+  margin-bottom: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+#taskList .todo {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  font-size: 18px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 45px;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: margin-bottom 0.333s ease-in-out,
+    -webkit-transform 0.333s ease-in-out;
+  transition: margin-bottom 0.333s ease-in-out,
+    -webkit-transform 0.333s ease-in-out;
+  transition: margin-bottom 0.333s ease-in-out, transform 0.333s ease-in-out;
+  transition: margin-bottom 0.333s ease-in-out, transform 0.333s ease-in-out,
+    -webkit-transform 0.333s ease-in-out;
+}
+
+#taskList .todo.hidden {
+  margin-bottom: -45px;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+}
+
+#taskList .todo input[type="checkbox"] {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  margin: 0 1rem 0 1rem;
+  background-color: blueviolet;
+}
+
+#taskList .todo .remove-task {
+  font-size: 24px;
+  padding: 0.5rem 0.7rem;
+}
+
+#taskList .todo .remove-task:hover {
+  background-color: lightslategray;
+}
+#displayAll {
+  background-color: lightslategray;
+}
+#taskList .completed .task-detail {
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+}
+
+.filter-options {
+  border: 1px solid white;
+  display: -ms-grid;
+  background-color: white;
+  display: grid;
+  -ms-grid-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr auto auto auto;
+  border-radius: 0.3em;
+}
+
+.filter-options span {
+  padding: 0.8em 1em;
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+.filter-options .filter-active {
+  background-color: lightsteelblue;
+}
+
+.filter-options .filter-active:nth-last-child(1) {
+  border-right: none;
+}
+
+.new-task {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+  margin-top: 3rem;
+  font-size: 18px;
+  column-gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  background-color: lightblue;
+}
+
+.new-task #newTask {
+  font-size: 18px;
+  background-color: #fcfcfc;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 9%);
+  border: none;
+  padding: 0 1em;
+  outline: none;
+  transition: 200ms ease-in-out;
+  border: 1px solid transparent;
+}
+.new-task #newTask:focus {
+  border-color: blue;
+}
+.new-task #addTask {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  background-color: #007bff;
+  color: white;
+  transition: 200ms ease-in-out;
+}
+
+.new-task #addTask:hover {
+  opacity: 0.8;
+}
+
+.btn {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: 3px solid lavender;
+  border-radius: 0.5em;
+  padding: 0.7em 1em;
+}
+
+.btn:hover {
+  background-color: lightslategray;
+}
+
+@media screen and (min-width: 601px) {
+  body {
+    background-color: white;
+    padding: 2rem;
+  }
+
+  #container {
+    position: relative;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0.4em;
+  }
+}

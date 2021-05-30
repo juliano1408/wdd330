@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note It!</title>
+  <script>
+
+  	function saveNote(){
+  		var currentDateAndTime = new Date()
+  		var aNoteDescription = document.getElementById("description_input").value
+  		var aNoteText = document.getElementById("note_editor").value
+  		var aCompleteNote = currentDateAndTime.toLocaleString() + "--" + aNoteDescription 
+  		aCompleteNote += "<p>" + aNoteText + "</p>"
+
+		var storedNotesString = localStorage.getItem("all_notes")
+		var allNotes = JSON.parse(storedNotesString)
+		if(allNotes == null){
+			allNotes = []
+		}
+		allNotes.push(aCompleteNote)
+		var allNotesString = JSON.stringify(allNotes)
+		localStorage.setItem("all_notes",allNotesString)
+		showAllNotes()
+		document.getElementById("description_input").value = null
+		document.getElementById("note_editor").value = null
+  	}
+  	function showAllNotes(){
+		var storedNotesString = localStorage.getItem("all_notes")
+		allNotes = JSON.parse(storedNotesString)
+		if (allNotes != null){
+	  		var noteDisplayer = document.getElementById("all_notes_display")
+	  		noteDisplayer.innerHTML = null
+	  		var numberOfNotes = allNotes.length
+	  		for (var i = 0; i < allNotes.length; i++) {
+	  			var aNote = allNotes[i]
+	  			noteDisplayer.innerHTML += "<hr><p>"+ aNote +"</p>"
+	  		}
+	  	}
+  	}
+  </script>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/note_it.css">  
+  <link
+  href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap"
+  rel="stylesheet"
+/>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="./css/note_it.css">
+<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body onload="showAllNotes()">
+	<section id="note_entry_area">
+		<h1>Note It!</h1>
+		Description: <input id="description_input"></input>
+		<textarea rows="8" id="note_editor" placeholder="Note it down. Don't forget."></textarea>
+		<br>
+		<button class="mainBtn" onclick="saveNote()">Save</button>
+	</section>
+	<section id="all_notes_display"></section>
+</body>
+</html>
